@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Croptimize - Your Farming Companion</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CROP<span>TIMIZE</span></div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    
+                    
+
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="login-btn">Log In</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>CROP GROWTH OPTIMIZATION</h1>
+                <p>Transforming Farming with Innovation and Insight!</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn" id="signup-btn">Get Started</a>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Crops Section -->
+    <section class="seasonal-crops">
+        <div class="container">
+            <div class="section-title">
+                <h2>Seasonal Crops</h2>
+                <p>Discover the best crops to grow according to the season</p>
+            </div>
+            
+            <div class="season-tabs">
+                <button class="season-tab active" data-season="summer">Summer</button>
+                <button class="season-tab" data-season="winter">Winter</button>
+                <button class="season-tab" data-season="rainy">Rainy</button>
+                <button class="season-tab" data-season="spring">Spring</button>
+            </div>
+            
+            <div class="crops-container">
+                <!-- Summer Crops -->
+                <div class="crop-list active" id="summer-crops">
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1551566492-bab776e0a8f9?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Corn</h3>
+                            <p>Ideal for warm weather, requires full sun exposure.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Tomatoes</h3>
+                            <p>Heat-loving crop that thrives in summer conditions.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1579306182682-22125dd419b1?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Peppers</h3>
+                            <p>Requires consistent warm temperatures to produce well.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1629544697981-1de31d9f3c46?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Watermelon</h3>
+                            <p>A summer favorite, needs plenty of space and water.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Winter Crops -->
+                <div class="crop-list" id="winter-crops">
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1583687367881-a766c9a30907?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Spinach</h3>
+                            <p>Cold-hardy leafy green that thrives in cooler temperatures.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1610417377645-4ed6fe1a635b?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Kale</h3>
+                            <p>Frost-tolerant vegetable that improves in flavor after cold weather.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1561635741-c416a5193b6e?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Carrots</h3>
+                            <p>Root vegetable that sweetens with frost exposure.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1587334207526-9d3d3d5290f3?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Wheat</h3>
+                            <p>Winter wheat is planted in fall and harvested in summer.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rainy Season Crops -->
+                <div class="crop-list" id="rainy-crops">
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Rice</h3>
+                            <p>Thrives in flooded conditions common during rainy seasons.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1516567727245-ad8c68f3ec93?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Okra</h3>
+                            <p>Heat and humidity loving vegetable perfect for rainy seasons.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1535915470072-93619aed7df0?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Soybeans</h3>
+                            <p>Grows well with abundant rainfall and warm temperatures.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1550828484-45019f8bf11e?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Green Beans</h3>
+                            <p>Quick growing crop that benefits from regular rainfall.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spring Crops -->
+                <div class="crop-list" id="spring-crops">
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1626448131423-e0f1d181efb8?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Lettuce</h3>
+                            <p>Cool-season crop that grows quickly in spring conditions.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1576697210477-1196cc65d8d9?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Peas</h3>
+                            <p>Early spring vegetable that prefers cool temperatures.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Radishes</h3>
+                            <p>Fast-growing root vegetable ideal for spring planting.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image" style="background-image: url('https://images.unsplash.com/photo-1625517236224-4dfc3ae4c8cd?q=80&w=500')"></div>
+                        <div class="crop-details">
+                            <h3>Onions</h3>
+                            <p>Planted in early spring for summer/fall harvesting.</p>
+                            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide comprehensive farming solutions</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Schedule It</h3>
+                    <p>Create customized planting and harvest schedules based on your region and crops.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Pest Detection & Cure</h3>
+                    <p>Identify pests and diseases affecting your crops and get targeted treatment options.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h3>Weather Insights</h3>
+                    <p>Get precise weather forecasts and agricultural advisories for your farm location.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Assistant</h3>
+                    <p>Get expert farming advice from our AI-powered assistant anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-login">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-user-id">User ID</label>
+                    <input type="text" id="login-user-id" placeholder="Enter your user ID">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <p class="toggle-link" id="switch-to-signup">Don't have an account? Sign Up</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-signup">&times;</span>
+            <h2>Register</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="register-user-id">User ID</label>
+                    <input type="text" id="register-user-id" placeholder="Choose a user ID">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" placeholder="Create a password">
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p class="toggle-link" id="switch-to-login">Already have an account? Login</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About CROPTIMIZE</h3>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul>
+                        <li><a href="#">Start Farming</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Become an Expert</a></li>
+                        <li><a href="#">Join Our Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Knowledge Base</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p>Sign up for our newsletter:</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CROPTIMIZE. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript file -->
+    <script src="./script.js"></script>
+</body>
+</html>
