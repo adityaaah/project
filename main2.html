@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Croptimize - Your Farming Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .search-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .notification-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #555;
+        }
+        
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar {
+            padding: 10px 15px;
+            width: 300px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        
+        .filter-dropdown {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            color: #555;
+        }
+        
+        .filter-options {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            display: none;
+            width: 150px;
+            z-index: 10;
+        }
+        
+        .filter-option {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        .filter-option:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #555;
+        }
+        
+        .menu-dropdown {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            display: none;
+            width: 150px;
+            z-index: 10;
+        }
+        
+        .menu-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .menu-option:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .profile-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 350px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        
+        .profile-panel.active {
+            right: 0;
+        }
+        
+        .close-profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .profile-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
+        
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        
+        .profile-field {
+            margin-bottom: 15px;
+        }
+        
+        .profile-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .profile-value {
+            color: #333;
+        }
+        
+        .saved-crops {
+            margin-top: 30px;
+        }
+        
+        .saved-crops-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+        
+        .main-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .main-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 48%;
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .main-btn i {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .bottom-options {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .bottom-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .bottom-option i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 50;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            
+            <div class="logo-text">Croptimize</div>
+        </div>
+        
+        <!-- Search Section -->
+        <div class="search-section">
+            <!-- Notification Button -->
+            <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+            </button>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="search your crop
+...">
+                <div class="filter-dropdown" onclick="toggleFilterOptions()">
+                    <i class="fas fa-filter"></i>
+                </div>
+                <div class="filter-options" id="filterOptions">
+                    <div class="filter-option">Summer</div>
+                    <div class="filter-option">Winter</div>
+                    <div class="filter-option">Rainy</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu Button -->
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Menu Dropdown -->
+        <div class="menu-dropdown" id="menuDropdown">
+            <a class="menu-option" onclick="showProfile()">Profile</a>
+            <a class="menu-option">Settings</a>
+            <a class="menu-option">Help</a>
+        </div>
+    </div>
+    
+    <!-- Main Buttons -->
+    <div class="main-buttons">
+        <button class="main-btn">
+            <i class="fas fa-calendar-alt"></i>
+            Schedule It
+        </button>
+        <button class="main-btn">
+            <i class="fas fa-bug"></i>
+            Pest Detection and Cure
+        </button>
+    </div>
+    
+    <!-- Bottom Options -->
+    <div class="bottom-options">
+        <a href="#" class="bottom-option">
+            <i class="fas fa-book"></i>
+            Expert Stories
+        </a>
+        <a href="#" class="bottom-option">
+            <i class="fas fa-robot"></i>
+            Ask AI
+        </a>
+    </div>
+    
+    <!-- Profile Panel -->
+    <div class="profile-panel" id="profilePanel">
+        <button class="close-profile" onclick="hideProfile()">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2 class="profile-header">User Profile</h2>
+        <div class="profile-info">
+            <div class="profile-field">
+                <span class="profile-label">User ID</span>
+                <span class="profile-value">CROP123456</span>
+            </div>
+            <div class="profile-field">
+                <span class="profile-label">Name</span>
+                <span class="profile-value">John Smith</span>
+            </div>
+            <div class="profile-field">
+                <span class="profile-label">Email</span>
+                <span class="profile-value">john.smith@example.com</span>
+            </div>
+            <div class="profile-field">
+                <span class="profile-label">Date of Birth</span>
+                <span class="profile-value">15/05/1985</span>
+            </div>
+            <div class="profile-field">
+                <span class="profile-label">Region</span>
+                <span class="profile-value">Midwest</span>
+            </div>
+        </div>
+        <div class="saved-crops">
+            <h3 class="saved-crops-title">Saved Crops</h3>
+            <div class="profile-field">
+                <span class="profile-value">• Corn</span>
+            </div>
+            <div class="profile-field">
+                <span class="profile-value">• Wheat</span>
+            </div>
+            <div class="profile-field">
+                <span class="profile-value">• Soybeans</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dark Overlay -->
+    <div class="overlay" id="overlay" onclick="hideProfile()"></div>
+    
+    <script>
+        function toggleFilterOptions() {
+            const filterOptions = document.getElementById('filterOptions');
+            if (filterOptions.style.display === 'block') {
+                filterOptions.style.display = 'none';
+            } else {
+                filterOptions.style.display = 'block';
+            }
+        }
+        
+        function toggleMenu() {
+            const menuDropdown = document.getElementById('menuDropdown');
+            if (menuDropdown.style.display === 'block') {
+                menuDropdown.style.display = 'none';
+            } else {
+                menuDropdown.style.display = 'block';
+            }
+        }
+        
+        function showProfile() {
+            document.getElementById('profilePanel').classList.add('active');
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('menuDropdown').style.display = 'none';
+        }
+        
+        function hideProfile() {
+            document.getElementById('profilePanel').classList.remove('active');
+            document.getElementById('overlay').style.display = 'none';
+        }
+        
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.filter-dropdown') && !event.target.matches('.fas.fa-filter')) {
+                document.getElementById('filterOptions').style.display = 'none';
+            }
+            
+            if (!event.target.matches('.menu-btn') && !event.target.matches('.fas.fa-bars')) {
+                if (!event.target.matches('.menu-option')) {
+                    document.getElementById('menuDropdown').style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
